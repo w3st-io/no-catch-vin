@@ -2,16 +2,15 @@
 	<div class="">
 		<!-- [SPACER] --> 
 		<section class="spacer text-center top-0">
-			<div class="">
-				<div class="container">
-					<h1 class="text-center text-light title">
-						No Catch. Just Lookup Your Vin.
-					</h1>
-				</div>
-			</div>
+			<BContainer>
+				<h1 class="text-center text-light title">
+					No Catch. Just Lookup Your Vin.
+				</h1>
+			</BContainer>
 		</section>
 
-		<BContainer class="my-3 vin-lookup">
+
+		<BContainer class="my-3 position-relative vin-lookup" style="top: -80px;">
 			<BRow class="shadow">
 				<BCol cols="12" sm="6" xl="3" class="d-none d-md-block bg-dark">
 					<hr class="border-light">
@@ -46,19 +45,6 @@
 </script>
 
 <style lang="scss" scoped>
-
-	.vin-lookup {
-		position: relative;
-		top: -80px;
-	}
-
-	.nav {
-		z-index: 100;
-		transition: .5s;
-	}
-
-	/*--//contact--*/
-	/*--/breadcrumb--*/
 	.spacer {
 		background: url('https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg') no-repeat center;
 		background-size: cover;
