@@ -8,9 +8,9 @@
 					<RouterLink to="/" class="navbar-brand">
 						<span
 							class="
+								d-none d-sm-block
 								h5
-								py-0
-								px-3
+								py-0 px-3
 								bg-primary
 								title
 								title-holder

@@ -4,8 +4,7 @@
 		<section class="spacer text-center top-0">
 			<div class="">
 				<div class="container">
-					<h2 class="title"></h2>
-					<h1 class="text-center text-light">
+					<h1 class="text-center text-light title">
 						No Catch. Just Lookup Your Vin.
 					</h1>
 				</div>
@@ -20,7 +19,7 @@
 					<hr class="border-light">
 					<h2 class="text-light font-weight-bold">BUYING A CAR? LOOK UP THE VIN HERE!</h2>
 				</Bcol>
-				<BCol cols="12" sm="6" xl="3" class="d-none d-md-block bg-danger">
+				<BCol cols="12" sm="6" xl="3" class="d-none d-md-block bg-primary">
 					<h5 class="p-5 text-light">Make An Informed Decision With An Instant Vehicle History Report From An Online VIN Lookup</h5>
 				</BCol>
 				<BCol cols="12" sm="12" xl="6" class="py-5 bg-white">
@@ -47,14 +46,11 @@
 </script>
 
 <style lang="scss" scoped>
-	@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 	.vin-lookup {
 		position: relative;
 		top: -80px;
 	}
-
-	.title { font-family: 'Audiowide', cursive; }
 
 	.nav {
 		z-index: 100;
@@ -71,7 +67,7 @@
 		display: grid;
 		align-items: center;
 		top: 0;
-		height: 500px;
+		height: 80vh;
 	}
 
 	.spacer h2.title {
@@ -93,13 +89,17 @@
 		opacity: .7;
 	}
 
-	@media (max-width:640px) {
+	@media (max-width: 640px) {
 		.spacer h2.title {
 			font-size: 34px;
 		}
+
+		.spacer {
+			height: 40vh;
+		}
 	}
 
-	@media (max-width:600px) {
+	@media (max-width: 600px) {
 		.spacer h2.title {
 			font-size: 30px;
 		}
