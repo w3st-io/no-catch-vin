@@ -19,7 +19,7 @@ const sideMenuIconConfig = {
 
 module.exports = [
 	{
-		text: '',
+		text: 'Home',
 		path: '/',
 		navIcon: feather.icons.home.toSvg(navIconConfig),
 		sideMenuIcon: feather.icons.home.toSvg(sideMenuIconConfig),

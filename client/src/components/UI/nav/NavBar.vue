@@ -1,23 +1,27 @@
 <template>
 	<div>
 		<!-- Top Bar -->
-		<div class="position-fixed w-100 top-0 nav" :class="navClass">
+		<div class="position-fixed w-100 top-0 nav transition" :class="navClass">
 			<BContainer>
 				<nav class="px-0 navbar navbar-expand-lg navbar-dark">
 					<!-- Logo -->
-					<RouterLink to="/" class="navbar-brand">
-						<span
-							class="
-								d-none d-sm-block
-								h5
-								py-0 px-3
-								bg-primary
-								title
-								title-holder
-								font-weight-bold
-							"
-						>{{ defaultData.companyName }}</span>
-					</RouterLink>
+					<div>
+						<RouterLink to="/" class="d-none d-sm-block py-0 px-3 navbar-brand">
+							<h3>
+								<span
+									class="font-weight-light transition"
+									:class="titleClass"
+								>NO</span>
+								<span class="text-primary font-weight-bold">
+									CATCH
+								</span>
+								<span
+									class="font-weight-light transition"
+									:class="titleClass"
+								>VIN SERVICE</span>
+							</h3>
+						</RouterLink>
+					</div>
 
 					<!-- Hidden Menu Button -->
 					<button class="navbar-toggler" @click="toggle()">
@@ -31,8 +35,15 @@
 							v-for="(button, i) in buttons"
 							:key="i"
 							:to="button.path"
+							class="transitiion"
+							
 						>
-							<BButton variant="secondary" size="sm" class="ml-2">
+							<BButton
+								variant="none"
+								size="sm"
+								class="ml-2"
+								:class="titleClass"
+							>
 								<span v-if="button.text" class="font-weight-bold">
 									{{ button.text }}
 								</span>
@@ -41,7 +52,7 @@
 						</RouterLink>
 					</div>
 
-					<div>
+					<div class="ml-auto">
 						<BButton
 							v-if="$store.state.userLogged"
 							variant="primary"
@@ -117,8 +128,14 @@
 			toggle() { this.$store.state.showMenu = !this.$store.state.showMenu },
 
 			handleScroll() {
-				if (window.scrollY > 0) { this.navClass = 'bg-shade' }
-				else { this.navClass = '' }
+				if (window.scrollY > 0) {
+					this.navClass = 'bg-light'
+					this.titleClass = 'text-dark'
+				}
+				else {
+					this.navClass = ''
+					this.titleClass = 'text-light'
+				}
 			},
 		},
 
@@ -131,23 +148,26 @@
 <style lang="scss" scoped>
 	.title-holder {
 		clip-path: polygon(
-			0% 0%,     /* top left */
-			0% 0%,     /* top left */
+			0% 0%, /* top left */
+			0% 0%, /* top left */
 
-			95% 0%,    /* top right */
-			100% 50%,   /* top right */
+			95% 0%, /* top right */
+			100% 50%, /* top right */
 
-			100% 100%,  /* bottom right */
-			100% 100%,  /* bottom right */
+			100% 100%, /* bottom right */
+			100% 100%, /* bottom right */
 			
-			5% 100%,   /* bottom left */
-			0 50%      /* bottom left */
+			5% 100%, /* bottom left */
+			0 50% /* bottom left */
 		);
+	}
+
+	.transition {
+		transition: .5s;
 	}
 
 	.nav {
 		z-index: 100;
-		transition: .5s;
 	}
 
 	.bg-shade {
