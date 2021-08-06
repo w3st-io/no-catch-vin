@@ -1,6 +1,6 @@
 module.exports = {
 	companyLogo: '',
-	companyName: 'NO CATCH VIN SERVICE',
+	companyName: 'No Catch Vin Service',
 	companyCaption: 'Caption',
 
 	address: '123 Main St. Teaneck, NJ 07666',

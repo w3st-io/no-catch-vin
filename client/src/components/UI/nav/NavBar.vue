@@ -7,26 +7,27 @@
 					<!-- Logo -->
 					<div>
 						<RouterLink to="/" class="d-none d-sm-block py-0 px-3 navbar-brand">
-							<h3>
+							<h2 class="m-0">
 								<span
 									class="font-weight-light transition"
 									:class="titleClass"
-								>NO</span>
-								<span class="text-primary font-weight-bold">
-									CATCH
+								>No</span>
+								<span class="text-primary font-weight-light">
+									Catch
 								</span>
 								<span
 									class="font-weight-light transition"
 									:class="titleClass"
-								>VIN SERVICE</span>
-							</h3>
+								>Vin Service</span>
+							</h2>
 						</RouterLink>
 					</div>
 
-					<!-- Hidden Menu Button -->
-					<button class="navbar-toggler" @click="toggle()">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+					<!-- [HIDDEn] Menu Button -->
+					<button
+						class="navbar-toggler bg-primary rounded-0"
+						@click="$store.state.showMenu = !$store.state.showMenu"
+					><MenuIcon class="text-light" /></button>
 				</nav>
 			
 				<BNavbar class="px-0 pb-3">
@@ -96,6 +97,9 @@
 </template>
 
 <script>
+	// [IMPORT] //
+	import { MenuIcon } from 'vue-feather-icons'
+
 	// [IMPORT] Personal //
 	import SideMenu from '@/components/UI/nav/SideMenu'
 	import defaultData from '@/defaults/companyInfo'
@@ -104,6 +108,7 @@
 
 	export default {
 		components: {
+			MenuIcon,
 			SideMenu,
 		},
 
@@ -124,8 +129,6 @@
 			registerRedirect() { router.push({ name: 'register' }) },
 
 			profileRedirect() { router.push({ name: 'user_profile' }) },
-
-			toggle() { this.$store.state.showMenu = !this.$store.state.showMenu },
 
 			handleScroll() {
 				if (window.scrollY > 0) {
