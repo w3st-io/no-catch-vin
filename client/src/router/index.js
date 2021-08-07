@@ -44,6 +44,8 @@ import notification from '@/pages/notification'
 // Post //
 import post from '@/pages/post'
 import post_create from '@/pages/post/create'
+// Preview //
+import preview from '@/pages/preview'
 // User //
 import user_activity from '@/pages/user/activity'
 import user_activity_lookup from '@/pages/user/activity/lookup'
@@ -327,6 +329,16 @@ const router = new Router ({
 			meta: {
 				auth: true,
 				title: 'Create a Post'
+			}
+		},
+		// Preview //
+		{
+			path: '/preview/:vin',
+			name: 'preview',
+			component: preview,
+			meta: {
+				auth: true,
+				title: 'Preview'
 			}
 		},
 		// User //

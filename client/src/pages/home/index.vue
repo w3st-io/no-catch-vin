@@ -27,7 +27,7 @@
 
 				<BCol cols="12" sm="12" xl="6" class="py-5 bg-white">
 					<!-- [FORM]  -->
-					<form @submit.prevent="run()" class="text-dark">
+					<form @submit.prevent="submitForm()" class="text-dark">
 						<h4 class="mb-3 font-weight-bold">Search your vin below!</h4>
 						<!-- [INPUT] vin -->
 						<input
@@ -48,10 +48,17 @@
 			</BRow>			
 		</BContainer>
 
+		<Info class="position-relative w-100 mx-auto" style="top: -100px; max-width: 1000px;" />
+		<Info2 class="position-relative w-100 mx-auto" style="top: -100px;" />
+
 	</div>
 </template>
 
 <script>
+	import Info from '../../components/home/Info'
+	import Info2 from '../../components/home/Info2'
+	import router from '../../router'
+
 	export default {
 		data() {
 			return {
@@ -59,9 +66,16 @@
 			}
 		},
 
+		components: {
+			Info,
+			Info2,
+		},
+
 		methods: {
-			run() {
-				console.log(this.vin)
+			submitForm() {
+				if (this.vin) {
+					router.push({ name: 'preview', params: { vin: this.vin }})
+				}
 			},
 		},
 
