@@ -42,13 +42,13 @@
 							<BButton
 								variant="none"
 								size="sm"
-								class="ml-2"
+								class="ml-2 text-light"
 								:class="titleClass"
 							>
-								<span v-if="button.text" class="font-weight-bold">
+								<span v-if="button.text" class="font-weight-bold m-link">
 									{{ button.text }}
 								</span>
-								<span v-else v-html="button.navIcon"></span>
+								<span v-else v-html="button.navIcon" class="m-link"></span>
 							</BButton>
 						</RouterLink>
 					</div>
@@ -137,7 +137,7 @@
 				}
 				else {
 					this.navClass = ''
-					this.titleClass = 'text-light'
+					this.titleClass = ''
 				}
 			},
 		},
@@ -149,6 +149,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@import '../../../assets/styles/bootstrap-override.scss';
+
 	.title-holder {
 		clip-path: polygon(
 			0% 0%, /* top left */
@@ -218,6 +220,12 @@
 	@media (max-width:600px) {
 		.spacer h2.title {
 			font-size: 30px;
+		}
+	}
+
+	a.router-link-exact-active {
+		span.m-link {
+			@extend .text-primary
 		}
 	}
 </style>
