@@ -10,7 +10,7 @@
 		</section>
 
 
-		<BContainer class="my-3 position-relative vin-lookup" style="top: -80px;">
+		<BContainer class="my-3 position-relative vin-lookup" style="top: -100px;">
 			<BRow class="shadow">
 				<BCol cols="12" sm="6" xl="3" class="d-none d-md-block bg-dark">
 					<hr class="border-light">
@@ -28,7 +28,7 @@
 				<BCol cols="12" sm="12" xl="6" class="py-5 bg-white">
 					<!-- [FORM]  -->
 					<form @submit.prevent="run()" class="text-dark">
-						<h4 class="mb-3">Search your vin below!</h4>
+						<h4 class="mb-3 font-weight-bold">Search your vin below!</h4>
 						<!-- [INPUT] vin -->
 						<input
 							v-model="vin"
@@ -39,9 +39,9 @@
 
 						<!-- [SUBMIT] -->
 						<BButton
+							variant="primary"
 							class="btn-style btn-style-1 w-100"
 							type="submit"
-							onclick="run()"
 						>Check Now</BButton>
 					</form>
 				</BCol>

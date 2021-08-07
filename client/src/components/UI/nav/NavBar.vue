@@ -8,7 +8,7 @@
 					<div>
 						<RouterLink to="/" class="d-none d-sm-block py-0 px-3 navbar-brand">
 							<h2
-								class="m-0 border-5 border-bottom border-primary"
+								class="m-0 px-2 border-5 border border-primary"
 								style="border-width: 3px !important;"
 							>
 								<span
