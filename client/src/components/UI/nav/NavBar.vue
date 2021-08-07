@@ -23,7 +23,7 @@
 						</RouterLink>
 					</div>
 
-					<!-- [HIDDEn] Menu Button -->
+					<!-- [HIDDEN] Menu Button -->
 					<button
 						class="navbar-toggler bg-primary rounded-0"
 						@click="$store.state.showMenu = !$store.state.showMenu"
@@ -225,7 +225,11 @@
 
 	a.router-link-exact-active {
 		span.m-link {
-			@extend .text-primary
+			@extend .border-bottom;
+			@extend .border-primary;
+			@extend .text-primary;
+
+			border-width: 2px !important;
 		}
 	}
 </style>
