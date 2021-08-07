@@ -7,7 +7,10 @@
 					<!-- Logo -->
 					<div>
 						<RouterLink to="/" class="d-none d-sm-block py-0 px-3 navbar-brand">
-							<h2 class="m-0 border-5 border-bottom border-primary" style="border-width: 3px !important;">
+							<h2
+								class="m-0 border-5 border-bottom border-primary"
+								style="border-width: 3px !important;"
+							>
 								<span
 									class="font-weight-light transition"
 									:class="titleClass"
@@ -114,6 +117,7 @@
 
 		data() {
 			return {
+				titleClass: '',
 				navClass: '',
 				defaultData: defaultData,
 				query: '',
@@ -143,7 +147,7 @@
 		},
 
 		created() {
-			window.addEventListener('scroll', this.handleScroll);
+			window.addEventListener('scroll', this.handleScroll)
 		},
 	}
 </script>
@@ -155,13 +159,10 @@
 		clip-path: polygon(
 			0% 0%, /* top left */
 			0% 0%, /* top left */
-
 			95% 0%, /* top right */
 			100% 50%, /* top right */
-
 			100% 100%, /* bottom right */
 			100% 100%, /* bottom right */
-			
 			5% 100%, /* bottom left */
 			0 50% /* bottom left */
 		);
@@ -179,8 +180,6 @@
 		background-color: rgba(0, 0, 0, 0.75);
 	}
 
-	/*--//contact--*/
-	/*--/breadcrumb--*/
 	.spacer {
 		background: url('https://www.tesla.com/sites/default/files/images/roadster/roadster-social.jpg') no-repeat center;
 		background-size: cover;

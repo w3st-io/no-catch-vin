@@ -24,12 +24,4 @@ module.exports = [
 		navIcon: feather.icons.home.toSvg(navIconConfig),
 		sideMenuIcon: feather.icons.home.toSvg(sideMenuIconConfig),
 	},
-	{
-		text: 'Followed Posts',
-		path: '/followed/1',
-	},
-	{
-		text: 'All Activity',
-		path: '/activity/1/10/1',
-	},
 ]

@@ -18,13 +18,32 @@
 					<hr class="border-light">
 					<h2 class="text-light font-weight-bold">BUYING A CAR? LOOK UP THE VIN HERE!</h2>
 				</Bcol>
+
 				<BCol cols="12" sm="6" xl="3" class="d-none d-md-block bg-primary">
-					<h5 class="p-5 text-light">Make An Informed Decision With An Instant Vehicle History Report From An Online VIN Lookup</h5>
+					<h5 class="p-5 text-light">
+						Make An Informed Decision With An Instant Vehicle History Report From An Online VIN Lookup
+					</h5>
 				</BCol>
+
 				<BCol cols="12" sm="12" xl="6" class="py-5 bg-white">
-					<h4 class="mb-3">Search your vin below!</h4>
-					<input type="text" class="form-control mb-3">
-					<BButton variant="primary" class="w-100">Search</BButton>
+					<!-- [FORM]  -->
+					<form @submit.prevent="run()" class="text-dark">
+						<h4 class="mb-3">Search your vin below!</h4>
+						<!-- [INPUT] vin -->
+						<input
+							v-model="vin"
+							type="input"
+							id="vin"
+							class="form-control mb-3"
+						>
+
+						<!-- [SUBMIT] -->
+						<BButton
+							class="btn-style btn-style-1 w-100"
+							type="submit"
+							onclick="run()"
+						>Check Now</BButton>
+					</form>
 				</BCol>
 			</BRow>			
 		</BContainer>
@@ -34,6 +53,18 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				vin: '',
+			}
+		},
+
+		methods: {
+			run() {
+				console.log(this.vin)
+			},
+		},
+
 		mounted() {
 			this.$store.state.showSpacer = false
 		},
