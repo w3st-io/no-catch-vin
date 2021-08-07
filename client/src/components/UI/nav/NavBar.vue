@@ -39,17 +39,17 @@
 							class="transitiion"
 							
 						>
-							<BButton
+							<span
 								variant="none"
 								size="sm"
-								class="ml-2 text-light"
+								class="ml-3 text-light"
 								:class="titleClass"
 							>
 								<span v-if="button.text" class="font-weight-bold m-link">
 									{{ button.text }}
 								</span>
 								<span v-else v-html="button.navIcon" class="m-link"></span>
-							</BButton>
+							</span>
 						</RouterLink>
 					</div>
 
