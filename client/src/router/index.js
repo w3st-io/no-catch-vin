@@ -41,8 +41,8 @@ import followed from '@/pages/followed'
 import home from '@/pages/home'
 // Notification //
 import notification from '@/pages/notification'
-// Payment Wall //
-import paymentWall from '@/pages/payment-wall'
+// Pay Wall //
+import payWall from '@/pages/pay-wall'
 // Post //
 import post from '@/pages/post'
 import post_create from '@/pages/post/create'
@@ -314,11 +314,11 @@ const router = new Router ({
 				title: 'notification'
 			}
 		},
-		// Payment Wall //
+		// Pay Wall //
 		{
-			path: '/payment-wall/:vin',
-			name: 'paymentWall',
-			component: paymentWall,
+			path: '/pay-wall/:vin',
+			name: 'payWall',
+			component: payWall,
 			meta: {
 				auth: true,
 				title: ''

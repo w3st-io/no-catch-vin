@@ -12,9 +12,10 @@
 							<BCol cols="12">
 								<!-- Email -->
 								<label for="email" class="text-primary">
-									Email (For your receipt & reprint code)
+									Email (For your receipt &amp; reprint code)
 								</label>
 								<input
+									v-model="email"
 									name="email"
 									type="email"
 									class="form-control mb-3"
@@ -24,26 +25,36 @@
 
 							<BCol cols="12">
 								<!-- Card Name -->
-								<label for="card_name" class="text-primary">Card Name</label>
-								<input
-									name="card_name"
-									type="text"
-									class="form-control mb-3"
-									placeholder="123 123 123 123"
-								>
+								<div class="form-group">
+									<label for="card_name" class="text-primary">
+										Card Name
+									</label>
+									<input
+										type="text"
+										name="card_name"
+										v-model="card.name"
+										class="form-control"
+										placeholder="Name"
+									>
+									{{ card.name }}
+								</div>
 							</BCol>
 
 							<BCol cols="12">
 								<!-- Card Number -->
-								<label for="card_number" class="text-primary">
-									Card Number
-								</label>
-								<input
-									name="card_number"
-									type="text"
-									class="form-control mb-3"
-									placeholder="123 123 123 123"
-								>
+								<div class="form-group">
+									<label for="card_number" class="text-primary">
+										Card number
+									</label>
+									<input
+										v-model="card.number"
+										name="card_number"
+										v-cardformat:formatCardNumber
+										class="form-control"
+										placeholder="---- ---- ---- ----"
+									>
+									{{ card.number }}
+								</div>
 							</BCol>
 
 							<BCol cols="12" md="4">
@@ -52,10 +63,12 @@
 									Card Exp. Month
 								</label>
 								<input
+									v-model="card.exp_month"
 									name="card_exp_month"
 									type="text"
 									class="form-control mb-3"
-									placeholder="123 123 123 123"
+									placeholder="MM"
+									maxlength="2"
 								>
 							</BCol>
 
@@ -65,30 +78,40 @@
 									Card Exp. Year
 								</label>
 								<input
+									v-model="card.exp_year"
 									name="card_exp_month"
 									type="text"
 									class="form-control mb-3"
-									placeholder="123 123 123 123"
+									placeholder="YY"
+									maxlength="2"
 								>
 							</BCol>
 
-							<BCol cols="12" md="4">
+							<BCol cols="12" md="4" class="mb-3">
 								<!-- Card CVV -->
-								<label for="card_cvv" class="text-primary">
-									Card CVV
-								</label>
-								<input
-									name="card_cvv"
-									type="text"
-									class="form-control mb-3"
-									placeholder="123 123 123 123"
-								>
+								<div class="form-group">
+									<label for="card_cvv" class="text-primary">
+										Card CVV
+									</label>
+									<input
+										v-model="card.cvv"
+										v-cardformat:formatCardCVC
+										name="card_cvv"
+										class="form-control"
+									>
+								</div>
+							</BCol>
+
+							<BCol cols="12">
+								{{ card }}
+								<BButton @click="submit()" class="w-100">Submit</BButton>
 							</BCol>
 						</BRow>
 					</form>
 				</BCard>
 			</BCol>
 
+			<!-- Why Charge -->
 			<BCol cols="12" md="4">
 				<div class="mb-3 p-3 bg-info rounded shadow">
 					<h6 class="m-0 text-light">Why do we charge a $1 fee?</h6>
@@ -97,15 +120,29 @@
 						Generating a vin report is costly and not cheap but we charge only the amount needed to help keep our customers happy and our lights on!
 					</p>
 				</div>
+
+				<img
+					src="https://www.24-7fireprotection.com/img/accepted-payments.f8cbc895.png"
+					class="w-100 mb-3"
+				>
 			</BCol>
 		</BRow>
-
-		<credit-card-field v-model="card"></credit-card-field>
 	</BContainer>
 </template>
 
 <script>
-export default {
-	
-}
+	export default {
+		data() {
+			return {
+				email: '',
+				card: {
+					name: '',
+					number: '',
+					exp_month: '',
+					exp_year: '',
+					cvv: '',
+				},
+			}
+		},
+	}
 </script>

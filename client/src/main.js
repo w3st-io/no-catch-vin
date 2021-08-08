@@ -6,6 +6,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import Vue from 'vue'
 import Editor from 'vue-editor-js/src/index'
 import VueHeadful from 'vue-headful'
+import VueCardFormat from 'vue-credit-card-validation'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import 'aos/dist/aos.css'
 import 'viewerjs/dist/viewer.css'
@@ -25,6 +26,7 @@ import '@/vee-validation-rules'
 Vue.use(BootstrapVue)
 Vue.use(Editor)
 Vue.use(Viewer)
+Vue.use(VueCardFormat)
 Vue.use(VueYouTubeEmbed)
 
 
