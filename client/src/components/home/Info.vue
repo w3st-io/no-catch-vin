@@ -8,7 +8,7 @@
 								<img
 									src="https://americanvinhistory.com/assets/images/ab1.jpg"
 									alt=""
-									class="w-100 img-fluid"
+									class="d-none d-lg-block w-100 img-fluid"
 								>
 						</div>
 					</BCol>

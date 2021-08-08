@@ -2,28 +2,21 @@
 	<section class="my-5 w3l-content-6 report-section">
 		<BContainer class="container">
 			<BRow class="content-info-in">
-				<!-- col 3 -->
-				<BCol cols="12" lg="3" class="d-none d-lg-block">
-					<img
-						src="https://www.americanvinhistory.com/assets/images/checkoutrefundleft.png"
-						alt=""
-						style="margin-bottom: 20px;"
-						class="img-fluid"
-					>
-					<img
-						src="https://www.americanvinhistory.com/assets/images/ab1.jpg"
-						alt=""
-						class="img-fluid"
-					>
-				</BCol>
-
 				<!-- col 6 -->
-				<BCol cols="12" lg="6" class="mt-lg-0 mt-5 about-right-faq align-self pl-lg-4">
+				<BCol
+					cols="12" lg="6"
+					class="mx-auto mt-lg-0 mt-5 pl-lg-4 about-right-faq align-self"
+					style="max-width: 800px;"
+				>
 					<!-- Details -->
-					<div class="title-content text-left mb-2">
-						<h6 class="sub-title">We've downloaded your report for:</h6>
+					<div class="mb-4 title-content">
 						<!-- VIN -->
-						<h3 class="hny-title">Your Vin Number: {{ $route.params.vin }}</h3>
+						<h4 class="text-center text-secondary">
+							We've Found the Car with Your Vin:
+						</h4>
+						<h2 class="text-center text-primary">
+							{{ $route.params.vin }}
+						</h2>
 					</div>
 
 
@@ -120,15 +113,6 @@
 						</BCardBody>
 					</BCard>
 				</BCol>
-
-				<!-- col 3 -->
-				<div class="col-lg-3">
-					<img
-						src="https://www.americanvinhistory.com/assets/images/placecheckoutonright.png"
-						alt=""
-						class="img-fluid"
-					>
-				</div>
 			</BRow>
 		</BContainer>
 	</section>
