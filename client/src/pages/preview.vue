@@ -51,62 +51,62 @@
 								<tbody>
 									<tr>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Detailed specifications
 										</td>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Ownership records
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Theft records
 										</td>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Odometer records
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Salvage records
 										</td>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Accident records
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Detailed specifications
 										</td>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Ownership records
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Vandalism records
 										</td>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Damage Records
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
 											&nbsp;Rideshare Records
 										</td>
 										<td>
-											<i class="fas fa-check-circle" style="color:#1F85DE"></i>
-											&nbsp;100+ other records
+											<i class="fas fa-check-circle" style="color:#1F85DE">&#10004;</i>
+											100+ other records
 										</td>
 									</tr>
 								</tbody>
@@ -116,7 +116,7 @@
 							<RouterLink
 								:to="`/pay-wall/${$route.params.vin}`"
 								class="btn btn-primary w-100"
-							>Get my report full report</RouterLink>
+							>Get My Full Report</RouterLink>
 						</BCardBody>
 					</BCard>
 				</BCol>
