@@ -155,19 +155,6 @@
 <style lang="scss" scoped>
 	@import '../../../assets/styles/bootstrap-override.scss';
 
-	.title-holder {
-		clip-path: polygon(
-			0% 0%, /* top left */
-			0% 0%, /* top left */
-			95% 0%, /* top right */
-			100% 50%, /* top right */
-			100% 100%, /* bottom right */
-			100% 100%, /* bottom right */
-			5% 100%, /* bottom left */
-			0 50% /* bottom left */
-		);
-	}
-
 	.transition {
 		transition: .5s;
 	}

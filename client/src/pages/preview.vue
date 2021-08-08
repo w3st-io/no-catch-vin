@@ -44,10 +44,9 @@
 						</table>
 					</div>
 
-					<BCard>
-						<div class="card-header">Your Full Report Includes...</div>
-
-						<div class="card-body">
+					<BCard no-body>
+						<BCardHeader>Your Full Report Includes...</BCardHeader>
+						<BCardBody>
 							<table class="table">
 								<tbody>
 									<tr>
@@ -111,13 +110,13 @@
 										</td>
 									</tr>
 								</tbody>
-							</table>	
-		
+							</table>
+
 							<!-- [SUBMIT] -->
 							<a class="btn btn-primary w-100">
 								Get my report full report
 							</a>
-						</div>
+						</BCardBody>
 					</BCard>
 				</BCol>
 
@@ -136,6 +135,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
 	data() {
 		return {
@@ -145,26 +145,30 @@ export default {
 		}
 	},
 
-	created() {		
-		const headers = {
-			'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
-			'x-rapidapi-key': 'c404ea350amsh3a1bf345dd7386fp1bcde5jsnad8d954aa8d4',
-		}
-
+	created() {
 		axios.get(
 			`https://vindecoder.p.rapidapi.com/decode_vin?vin=${this.$route.params.vin}`,
-			{ headers: headers }
+			{
+				headers: {
+					'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
+					'x-rapidapi-key': 'c404ea350amsh3a1bf345dd7386fp1bcde5jsnad8d954aa8d4',
+				}
+			}
 		)
 			.then((res) => {
-				console.log(res.data)
 				this.make = res.data.specification.make
 				this.model = res.data.specification.model
 				this.engine = res.data.specification.engine
 
-				console.log('data', this.make, this.model, this.engine);
+				console.log(
+					'data:',
+					this.make,
+					this.model,
+					this.engine
+				);
 			})
 			.catch((err) => {
-				console.log('AUGHT',err)
+				console.log('error:', err)
 			})
 	},
 }

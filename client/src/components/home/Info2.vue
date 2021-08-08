@@ -196,9 +196,7 @@
 	-ms-border-radius: 50%;
 	-o-border-radius: 50%;
 	background-position: center center;
-
 	-webkit-backface-visibility: hidden;
-	/*Just for webkit to have a smooth font*/
 	display: grid;
 	align-items: center;
 }
