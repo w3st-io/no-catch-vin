@@ -1,8 +1,8 @@
 <template>
 	<BContainer class="my-5">
 		<BRow>
-			<BCol cols="12" md="8">
-				<BCard text-variant="dark" class="shadow">
+			<BCol cols="12" md="8" order="2" order-md="1">
+				<BCard text-variant="dark" class="mb-3 shadow">
 					<h5 class="text-center text-secondary">A Small fee So We Can Generate Your Report</h5>
 					<h3 class="text-center text-primary font-weight-bold">Your Report is $0.99 away!</h3>
 					<hr class="mb-4 border-success">
@@ -104,7 +104,6 @@
 							</BCol>
 
 							<BCol cols="12">
-								{{ card }}
 								<BButton
 									variant="primary"
 									@click="submit()"
@@ -117,10 +116,10 @@
 			</BCol>
 
 			<!-- Why Charge -->
-			<BCol cols="12" md="4">
+			<BCol cols="12" md="4" order="1" order-md="2">
 				<div class="mb-3 p-3 bg-info rounded shadow">
-					<h6 class="m-0 text-light">Why do we charge a $1 fee?</h6>
-					<hr>
+					<h5 class="m-0 font-weight-bold text-light">Why do we charge a $1 fee?</h5>
+					<hr class="border-light">
 					<p class="m-0 text-light">
 						Generating a vin report is costly and not cheap but we charge only the amount needed to help keep our customers happy and our lights on!
 					</p>
@@ -128,7 +127,7 @@
 
 				<img
 					src="https://www.24-7fireprotection.com/img/accepted-payments.f8cbc895.png"
-					class="w-100 mb-3"
+					class="d-none d-md-block w-100 mb-3"
 				>
 			</BCol>
 		</BRow>
