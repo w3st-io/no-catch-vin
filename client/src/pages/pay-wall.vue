@@ -97,6 +97,7 @@
 										v-model="card.cvv"
 										v-cardformat:formatCardCVC
 										name="card_cvv"
+										placeholder="---(-)"
 										class="form-control"
 									>
 								</div>
@@ -104,7 +105,11 @@
 
 							<BCol cols="12">
 								{{ card }}
-								<BButton @click="submit()" class="w-100">Submit</BButton>
+								<BButton
+									variant="primary"
+									@click="submit()"
+									class="w-100"
+								>Submit</BButton>
 							</BCol>
 						</BRow>
 					</form>

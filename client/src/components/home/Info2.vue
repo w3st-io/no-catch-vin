@@ -210,8 +210,9 @@
 }
 
 .ch-info .ch-info-back {
+	@extend .bg-secondary;
+	
 	opacity: 0;
-	background: var(--secondary-color);
 	pointer-events: none;
 
 	-webkit-transform: scale(1.5);

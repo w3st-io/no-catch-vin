@@ -113,9 +113,10 @@
 							</table>
 
 							<!-- [SUBMIT] -->
-							<a class="btn btn-primary w-100">
-								Get my report full report
-							</a>
+							<RouterLink
+								:to="`/pay-wall/${$route.params.vin}`"
+								class="btn btn-primary w-100"
+							>Get my report full report</RouterLink>
 						</BCardBody>
 					</BCard>
 				</BCol>
