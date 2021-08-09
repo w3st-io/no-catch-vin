@@ -1,15 +1,10 @@
 // [REQUIRE] //
 const cors = require('cors')
 const express = require('express')
-const Stripe = require('stripe')
 
 
-// [REQUIRE] //
-const config = require('../../s-config')
-
-
-// [STRIPE] //
-const stripe = Stripe(config.STRIPE_API_KEY)
+// [REQUIRE] Personal //
+const api_stripe = require('../../s-api/stripe')
 
 
 // [EXPRESS + USE] //
@@ -24,24 +19,22 @@ router.post(
 			const cardNumber = req.body.card.number.replace(/\s/g, '')
 
 
-			// [STRIPE] //
-			const token = await stripe.tokens.create({
-				card: {
-					number: cardNumber,
-					exp_month: req.body.card.exp_month,
-					exp_year: req.body.card.exp_year,
-					cvc: req.body.card.cvc,
-				},
+			// [STRIPE] create token //
+			const token = await api_stripe.tokensCreate({
+				number: cardNumber,
+				exp_month: req.body.card.exp_month,
+				exp_year: req.body.card.exp_year,
+				cvc: req.body.card.cvc,
 			})
 
 
-			const charge = await stripe.charges.create({
+			// [STRIPE] create charge //
+			const charge = await api_stripe.chargeCreate({
 				amount: 100,
-				currency: 'usd',
 				source: token.id,
 				metadata: {
-					email: req.body.email,
 					vin: req.body.vin,
+					email: req.body.email
 				}
 			})
 
