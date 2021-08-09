@@ -4,8 +4,8 @@
 			<BRow class="content-info-in">
 				<!-- col 6 -->
 				<BCol
-					cols="12" lg="6"
-					class="mx-auto mt-lg-0 mt-5 pl-lg-4 about-right-faq align-self"
+					cols="12"
+					class="mx-auto pl-lg-4"
 					style="max-width: 800px;"
 				>
 					<!-- Details -->
@@ -20,7 +20,7 @@
 					</div>
 
 
-					<div class="summery">
+					<div>
 						<table class="table">
 							<tr>
 								<td>Make</td>
