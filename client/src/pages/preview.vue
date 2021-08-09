@@ -131,6 +131,7 @@ export default {
 	},
 
 	created() {
+		// [VULNERABILITY] Remove this and move it to the BACKEND
 		axios.get(
 			`https://vindecoder.p.rapidapi.com/decode_vin?vin=${this.$route.params.vin}`,
 			{
@@ -144,13 +145,6 @@ export default {
 				this.make = res.data.specification.make
 				this.model = res.data.specification.model
 				this.engine = res.data.specification.engine
-
-				console.log(
-					'data:',
-					this.make,
-					this.model,
-					this.engine
-				);
 			})
 			.catch((err) => {
 				console.log('error:', err)
