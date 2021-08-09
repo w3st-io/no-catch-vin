@@ -55,4 +55,8 @@ module.exports = {
 
 	// [FINNHUB] //
 	FINNHUB_KEY: process.env.FINNHUB_KEY || '',
+
+
+	// [VIN-DECODER] //
+	VIN_DECODER_API_KEY: process.env.VIN_DECODER_API_KEY || '',
 }

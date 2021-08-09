@@ -7,6 +7,7 @@ const validator = require('validator')
 
 // [REQUIRE] Personal //
 const Auth = require('../../s-middleware/Auth')
+const config = require('../../s-config')
 
 
 // [EXPRESS + USE] //
@@ -19,21 +20,30 @@ router.get(
 	Auth.userTokenNotRequired(),
 	async (req, res) => {
 		try {
-			const response = await axios.get(
-				`https://vindecoder.p.rapidapi.com/decode_vin?vin=${req.params.vin}`,
-				{
-					headers: {
-						'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
-						'x-rapidapi-key': 'c404ea350amsh3a1bf345dd7386fp1bcde5jsnad8d954aa8d4',
+			if (validator.isAscii(req.params.vin)) {
+				const response = await axios.get(
+					`https://vindecoder.p.rapidapi.com/decode_vin?vin=${req.params.vin}`,
+					{
+						headers: {
+							'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
+							'x-rapidapi-key': `${config.VIN_DECODER_API_KEY}`,
+						}
 					}
-				}
-			)
-
-			res.send({
-				executed: true,
-				status: true,
-				data: response.data
-			})
+				)
+	
+				res.send({
+					executed: true,
+					status: true,
+					data: response.data
+				})
+			}
+			else {
+				res.send({
+					executed: true,
+					status: false,
+					message: 'Invalid Params'
+				})
+			}
 		}
 		catch (err) {
 			res.send({
