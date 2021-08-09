@@ -34,6 +34,9 @@ module.exports = {
 	EMAIL_PASSWORD: process.env.EMAIL_PASSWORD || '',
 	EMAIL_SERVICE: process.env.EMAIL_SERVICE || '',
 
+	// [FINNHUB] //
+	STRIPE_API_KEY: process.env.STRIPE_API_KEY,
+
 	// [EMAIL-RECEIVERS] //
 	ADMIN_EMAIL: process.env.ADMIN_EMAIL || '',
 	ADVANCED_EMAIL: process.env.ADVANCED_EMAIL || '',
@@ -51,5 +54,5 @@ module.exports = {
 	IEX_SB_PUBLIC_KEY: process.env.IEX_SB_PUBLIC_KEY || '',
 
 	// [FINNHUB] //
-	FINNHUB_KEY: process.env.FINNHUB_KEY
+	FINNHUB_KEY: process.env.FINNHUB_KEY || '',
 }

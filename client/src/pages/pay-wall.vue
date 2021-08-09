@@ -82,21 +82,21 @@
 									name="card_exp_month"
 									type="text"
 									class="form-control mb-3"
-									placeholder="YY"
-									maxlength="2"
+									placeholder="YYYY"
+									maxlength="4"
 								>
 							</BCol>
 
 							<BCol cols="12" md="4" class="mb-3">
 								<!-- Card CVV -->
 								<div class="form-group">
-									<label for="card_cvv" class="text-primary">
-										Card CVV
+									<label for="card_cvc" class="text-primary">
+										Card CVC
 									</label>
 									<input
-										v-model="card.cvv"
+										v-model="card.cvc"
 										v-cardformat:formatCardCVC
-										name="card_cvv"
+										name="card_cvc"
 										placeholder="---(-)"
 										class="form-control"
 									>
@@ -130,11 +130,17 @@
 					class="d-none d-md-block w-100 mb-3"
 				>
 			</BCol>
+
+			<BCol cols="12" order="3">
+				<h3 class="m-0 text-danger">{{ error }}</h3>
+			</BCol>
 		</BRow>
 	</BContainer>
 </template>
 
 <script>
+	import PaymentsService from '../services/PaymentsService'
+
 	export default {
 		data() {
 			return {
@@ -144,8 +150,31 @@
 					number: '',
 					exp_month: '',
 					exp_year: '',
-					cvv: '',
+					cvc: '',
 				},
+				error: '',
+			}
+		},
+
+		methods: {
+			async submit() {
+				if (
+					this.email != '',
+					this.card.name != '',
+					this.card.number != '',
+					this.card.exp_month != '',
+					this.card.exp_year != '',
+					this.card.cvc != ''
+				) {
+					await PaymentsService.s_vinReport({
+						vin: this.$route.params.vin,
+						email: this.email,
+						card: this.card,
+					})
+				}
+				else {
+					this.error = 'Missing required fields!'
+				}
 			}
 		},
 	}
