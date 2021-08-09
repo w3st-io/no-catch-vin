@@ -18,11 +18,11 @@ export default {
 
 
 	// [VIN-REPORT] //
-	s_vinReport: async function ({ vin, email, card }) {
+	s_purchaseVinReport: async function ({ vin, email, card }) {
 		try {
 			const authAxios = await this.authAxios()
 	
-			const res = await authAxios.post('/payments/vin-report', {
+			const res = await authAxios.post('/vin/purchase-vin-report', {
 				vin,
 				email,
 				card
@@ -34,7 +34,7 @@ export default {
 			return {
 				executed: false,
 				status: false,
-				message: `PaymentsService: Error --> ${err}`
+				message: `VinService: Error --> ${err}`
 			}
 		}
 	},

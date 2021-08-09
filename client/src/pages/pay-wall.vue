@@ -139,7 +139,7 @@
 </template>
 
 <script>
-	import PaymentsService from '../services/PaymentsService'
+	import VinService from '../services/VinService'
 
 	export default {
 		data() {
@@ -166,7 +166,7 @@
 					this.card.exp_year != '',
 					this.card.cvc != ''
 				) {
-					await PaymentsService.s_vinReport({
+					await VinService.s_purchaseVinReport({
 						vin: this.$route.params.vin,
 						email: this.email,
 						card: this.card,

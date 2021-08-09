@@ -12,7 +12,7 @@ const router = express.Router().use(cors())
 
 
 router.post(
-	'/vin-report',
+	'/purchase-vin-report',
 	async (req, res) => {
 		try {
 			// [FORMAT] //
