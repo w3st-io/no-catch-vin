@@ -11,6 +11,10 @@ const api_stripe = require('../../s-api/stripe')
 const router = express.Router().use(cors())
 
 
+// [INIT] //
+const location = '/api/vin'
+
+
 router.post(
 	'/purchase-vin-report',
 	async (req, res) => {
@@ -27,29 +31,48 @@ router.post(
 				cvc: req.body.card.cvc,
 			})
 
+			if (token.status) {
+				// [STRIPE] create charge //
+				const charge = await api_stripe.chargeCreate({
+					amount: 100,
+					source: token.token.id,
+					metadata: {
+						vin: req.body.vin,
+						email: req.body.email
+					}
+				})
 
-			// [STRIPE] create charge //
-			const charge = await api_stripe.chargeCreate({
-				amount: 100,
-				source: token.id,
-				metadata: {
-					vin: req.body.vin,
-					email: req.body.email
+				if (charge.status) {
+					if (charge.charge.paid) {
+						res.send({
+							executed: true,
+							status: true,
+							location: location,
+							charge: charge,
+						})
+					}
 				}
-			})
-
-
-			res.send({
-				executed: true,
-				status: true,
-				charge: charge,
-			})
+				else {
+					res.send({
+						executed: true,
+						status: false,
+						message: charge.message.message
+					})
+				}
+			}
+			else {
+				res.send({
+					executed: true,
+					status: false,
+					message: token.message.message
+				})
+			}
 		}
 		catch (err) {
 			res.send({
 				executed: false,
 				status: false,
-				location: '/api/payments',
+				location: location,
 				message: `Caught Error --> ${err}`,
 			})
 		}

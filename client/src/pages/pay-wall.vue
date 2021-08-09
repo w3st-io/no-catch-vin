@@ -152,6 +152,8 @@
 					exp_year: '',
 					cvc: '',
 				},
+
+				reqData: {},
 				error: '',
 			}
 		},
@@ -166,11 +168,18 @@
 					this.card.exp_year != '',
 					this.card.cvc != ''
 				) {
-					await VinService.s_purchaseVinReport({
+					this.reqData = await VinService.s_purchaseVinReport({
 						vin: this.$route.params.vin,
 						email: this.email,
 						card: this.card,
 					})
+					
+					console.log(this.reqData);
+
+					if (this.reqData.status) {
+						console.log('good')
+					}
+					else { this.error = this.reqData.message }
 				}
 				else {
 					this.error = 'Missing required fields!'
