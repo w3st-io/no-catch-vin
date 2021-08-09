@@ -44,6 +44,12 @@ router.post(
 
 				if (charge.status) {
 					if (charge.charge.paid) {
+						// get the api data for vin
+						
+						
+						// [CREATE] vinReportData // 
+
+
 						res.send({
 							executed: true,
 							status: true,
