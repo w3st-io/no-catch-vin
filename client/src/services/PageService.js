@@ -292,6 +292,23 @@ export default {
 	},
 
 
+	// [PREVIEW] //
+	s_preview: async function ({ vin }) {
+		try {
+			const authAxios = await this.authAxios()
+	
+			return (await authAxios.get(`/preview/${vin}`)).data
+		}
+		catch (err) {
+			return {
+				executed: false,
+				status: false,
+				message: `PageService: Error --> ${err}`
+			}
+		}
+	},
+
+
 	// [COMMENT] //
 	s_comment_create: async function (post_id) {
 		try {

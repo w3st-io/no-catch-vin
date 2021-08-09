@@ -113,42 +113,47 @@
 						</BCardBody>
 					</BCard>
 				</BCol>
+
+				<!-- cols 12 -->
+				<BCol cols="12">
+					<h3 class="text-danger">{{ error }}</h3>
+				</BCol>
 			</BRow>
 		</BContainer>
 	</section>
 </template>
 
 <script>
-import axios from 'axios'
+import PageService from '../services/PageService'
 
 export default {
 	data() {
 		return {
+			resData: {},
 			make: '',
 			model: '',
 			engine: '',
+			error: '',
 		}
 	},
 
-	created() {
-		// [VULNERABILITY] Remove this and move it to the BACKEND
-		axios.get(
-			`https://vindecoder.p.rapidapi.com/decode_vin?vin=${this.$route.params.vin}`,
-			{
-				headers: {
-					'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
-					'x-rapidapi-key': 'c404ea350amsh3a1bf345dd7386fp1bcde5jsnad8d954aa8d4',
-				}
+	methods: {
+		async getPageData () {
+			this.resData = await PageService.s_preview({
+				vin: this.$route.params.vin
+			})
+
+			if (this.resData.status == true) {
+				this.make = this.resData.data.specification.make
+				this.model = this.resData.data.specification.model
+				this.engine = this.resData.data.specification.engine
 			}
-		)
-			.then((res) => {
-				this.make = res.data.specification.make
-				this.model = res.data.specification.model
-				this.engine = res.data.specification.engine
-			})
-			.catch((err) => {
-				console.log('error:', err)
-			})
+			else { this.error = this.resData.message }
+		}
+	},
+
+	async created() {
+		await this.getPageData()
 	},
 }
 </script>
