@@ -133,15 +133,20 @@
 
 			<BCol cols="12" order="3">
 				<h3 class="m-0 text-danger">{{ error }}</h3>
+				<VinReport />
 			</BCol>
 		</BRow>
 	</BContainer>
 </template>
 
 <script>
+	import VinReport from './vin-report.vue'
 	import VinService from '../services/VinService'
 
+
 	export default {
+		components: { VinReport },
+
 		data() {
 			return {
 				email: '',
@@ -159,6 +164,9 @@
 		},
 
 		methods: {
+			generateReport () {
+            this.$refs.html2Pdf.generatePdf()
+        },
 			async submit() {
 				if (
 					this.email != '',
