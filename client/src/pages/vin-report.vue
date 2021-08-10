@@ -1,9 +1,13 @@
 <template>
-	<div class="">
-		<div ref="document" class="d-none">
-		TERST
+	<div>
+		<BButton @click="exportToPDF()">Export to PDF</BButton>
+		
+		
+		<div class="d-none">
+			<div ref="document" id="test">
+				VIN DATA
+			</div>
 		</div>
-		<button @click="exportToPDF">Export to PDF</button>
 	</div>
 </template>
 
