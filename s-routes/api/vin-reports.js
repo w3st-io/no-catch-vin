@@ -1,10 +1,12 @@
 // [REQUIRE] //
+const axios = require('axios')
 const cors = require('cors')
 const express = require('express')
 
 
 // [REQUIRE] Personal //
 const api_stripe = require('../../s-api/stripe')
+const config = require('../../s-config')
 
 
 // [EXPRESS + USE] //
@@ -45,7 +47,20 @@ router.post(
 				if (charge.status) {
 					if (charge.charge.paid) {
 						// get the api data for vin
-						
+						const response = await axios.get(
+							'https://vindecoder.p.rapidapi.com/decode_vin',
+							{
+								params: {
+									vin: req.body.vin,
+								},
+								headers: {
+									'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
+									'x-rapidapi-key': `${config.VIN_DECODER_API_KEY}`,
+								}
+							}
+						)
+
+						console.log(response.data);
 						
 						// [CREATE] vinReport //
 
