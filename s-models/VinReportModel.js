@@ -7,6 +7,11 @@ module.exports = mongoose.model(
 	mongoose.Schema({
 		_id: mongoose.Schema.Types.ObjectId,
 
+		emailedTo: {
+			type: String,
+			maxlength: 500,
+		},
+
 		stripeCharge_id: {
 			type: String,
 		},
