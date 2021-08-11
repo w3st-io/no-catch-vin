@@ -60,8 +60,6 @@ router.post(
 								}
 							}
 						)
-
-						console.log(response.data);
 						
 						// [CREATE] vinReport //
 						const createdVinReport = await vinReportsCollection.c_create({
@@ -72,6 +70,8 @@ router.post(
 						})
 
 						console.log(createdVinReport);
+
+						// [MAIL] //
 
 						res.send({
 							executed: true,
