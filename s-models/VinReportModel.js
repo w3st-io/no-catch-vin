@@ -107,7 +107,13 @@ module.exports = mongoose.model(
 				default: '',
 			},
 
-			standard_milage: {
+			optional_Seating: {
+				type: String,
+				maxlength: 100,
+				default: '',
+			},
+
+			highway_milage: {
 				type: String,
 				maxlength: 100,
 				default: '',
