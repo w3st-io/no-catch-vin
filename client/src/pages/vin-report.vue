@@ -1,14 +1,32 @@
 <template>
-	<div>
-		<BButton @click="exportToPDF()">Export to PDF</BButton>
+	<BContainer class="my-5">
+		<BButton
+			variant="primary"
+			class="w-100"
+			@click="exportToPDF()"
+		>Export to PDF</BButton>
 		
-		
-		<div class="d-none">
-			<div ref="document" id="test">
-				VIN DATA
+		<!-- [HIDDEN] -->
+		<div class="d">
+			<div ref="document">
+				<div class="w-100">
+					<h3>Vin Report for: {{ 'vin-here' }}</h3>
+					<table class="table table-striped table-bordered">
+						<tbody>
+							<tr>
+								<td>Is Salvaged:</td>
+								<td>True</td>
+							</tr>
+							<tr>
+								<td>Is Salvaged:</td>
+								<td>True</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-	</div>
+	</BContainer>
 </template>
 
 <script>
@@ -16,24 +34,30 @@
 
 	export default {
 		methods: {
-			exportToPDF () {
-				html2pdf(this.$refs.document, {
-					margin: 1,
-					filename: 'your-report.pdf',
-					image: {
-						type: 'jpeg',
-						quality: 0.98
-					},
-					html2canvas: {
-						dpi: 192,
-						letterRendering: true
-					},
-					jsPDF: {
-						unit: 'in',
-						format: 'letter',
-						orientation: 'landscape'
+			exportToPDF() {
+				html2pdf(
+					this.$refs.document,
+					{
+						margin: 1,
+						filename: 'your-report.pdf',
+
+						image: {
+							type: 'jpeg',
+							quality: 0.98
+						},
+
+						html2canvas: {
+							dpi: 192,
+							letterRendering: true
+						},
+
+						jsPDF: {
+							unit: 'in',
+							format: 'letter',
+							orientation: 'landscape'
+						}
 					}
-				})
+				)
 			}
 		}
 	}

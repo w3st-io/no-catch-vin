@@ -133,20 +133,16 @@
 
 			<BCol cols="12" order="3">
 				<h3 class="m-0 text-danger">{{ error }}</h3>
-				<VinReport />
 			</BCol>
 		</BRow>
 	</BContainer>
 </template>
 
 <script>
-	import VinReport from './vin-report.vue'
-	import VinService from '../services/VinService'
+	import vrs from '../services/VinReportsService'
 
 
 	export default {
-		components: { VinReport },
-
 		data() {
 			return {
 				email: '',
@@ -176,7 +172,7 @@
 					this.card.exp_year != '',
 					this.card.cvc != ''
 				) {
-					this.reqData = await VinService.s_purchaseVinReport({
+					this.reqData = await vrs.s_purchase({
 						vin: this.$route.params.vin,
 						email: this.email,
 						card: this.card,

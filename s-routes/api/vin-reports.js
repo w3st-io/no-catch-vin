@@ -12,11 +12,11 @@ const router = express.Router().use(cors())
 
 
 // [INIT] //
-const location = '/api/vin'
+const location = '/api/vin-reports'
 
 
 router.post(
-	'/purchase-vin-report',
+	'/purchase',
 	async (req, res) => {
 		try {
 			// [FORMAT] //
@@ -47,7 +47,7 @@ router.post(
 						// get the api data for vin
 						
 						
-						// [CREATE] vinReportData // 
+						// [CREATE] vinReport //
 
 
 						res.send({

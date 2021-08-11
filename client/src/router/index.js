@@ -63,6 +63,8 @@ import user_register from '@/pages/user/register'
 import user_registered from '@/pages/user/registered'
 // Search //
 import search from '@/pages/search'
+// Vin Report //
+import vinReport from '@/pages/vin-report'
 // z //
 import z from '@/pages/z'
 // Not-Found //
@@ -470,6 +472,16 @@ const router = new Router ({
 			meta: {
 				auth: true,
 				title: 'Search'
+			}
+		},
+		// Vin Service //
+		{
+			path: '/vin-report/:stripe_charge_id',
+			name: 'vinReport',
+			component: vinReport,
+			meta: {
+				auth: true,
+				title: 'vin Report'
 			}
 		},
 		// Z //
