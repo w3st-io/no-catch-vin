@@ -1,4 +1,7 @@
-// ORDER: to, subject, type, user_id, clientEmail, name, message, position, html, attachments
+/*
+ * Order of Parameters
+ * to, subject, user_id, clientEmail, name, message, position, html, attachments
+*/
 // [REQUIRE] //
 const mongoose = require('mongoose')
 const nodemailer = require('nodemailer')

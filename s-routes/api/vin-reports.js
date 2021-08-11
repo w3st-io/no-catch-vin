@@ -62,16 +62,25 @@ router.post(
 						)
 						
 						// [CREATE] vinReport //
-						const createdVinReport = await vinReportsCollection.c_create({
+						const vinReportObj = await vinReportsCollection.c_create({
 							emailedTo: req.body.email,
 							stripeCharge_id: charge.charge.id,
 							vin: req.body.vin,
 							vinDecodedSpecification: response.data.specification
 						})
 
-						console.log(createdVinReport);
+						console.log(vinReportObj.createdPost);
 
 						// [MAIL] //
+						const to = req.body.email
+						const subject = ''
+						const html = `
+							<h1>Thank You For Your Vin Report Purchase<h1/>
+							<h4>
+								Your reprint code: ${vinReportObj.createdPost._id}
+							</h4>
+							
+						`
 
 						res.send({
 							executed: true,
