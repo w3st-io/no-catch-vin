@@ -41,6 +41,12 @@ module.exports = mongoose.model(
 				default: '',
 			},
 
+			trim_level: {
+				type: String,
+				maxlength: 100,
+				default: '',
+			},
+
 			engine: {
 				type: String,
 				maxlength: 100,
