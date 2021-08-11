@@ -36,7 +36,6 @@
 										class="form-control"
 										placeholder="Name"
 									>
-									{{ card.name }}
 								</div>
 							</BCol>
 
@@ -53,7 +52,6 @@
 										class="form-control"
 										placeholder="---- ---- ---- ----"
 									>
-									{{ card.number }}
 								</div>
 							</BCol>
 

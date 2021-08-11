@@ -22,7 +22,7 @@ module.exports = mongoose.model(
 			maxlength: 50,
 		},
 
-		vinDecodeData: {
+		vinDecodedSpecification: {
 			year: {
 				type: String,
 				maxlength: 100,

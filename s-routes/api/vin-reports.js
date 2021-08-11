@@ -7,6 +7,7 @@ const express = require('express')
 // [REQUIRE] Personal //
 const api_stripe = require('../../s-api/stripe')
 const config = require('../../s-config')
+const vinReportsCollection = require('../../s-collections/VinReportsCollection')
 
 
 // [EXPRESS + USE] //
@@ -63,7 +64,14 @@ router.post(
 						console.log(response.data);
 						
 						// [CREATE] vinReport //
+						const createdVinReport = await vinReportsCollection.c_create({
+							emailedTo: req.body.email,
+							stripeCharge_id: charge.charge.id,
+							vin: req.body.vin,
+							vinDecodedSpecification: response.data.specification
+						})
 
+						console.log(createdVinReport);
 
 						res.send({
 							executed: true,
