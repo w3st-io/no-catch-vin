@@ -34,15 +34,14 @@ module.exports = {
 	EMAIL_PASSWORD: process.env.EMAIL_PASSWORD || '',
 	EMAIL_SERVICE: process.env.EMAIL_SERVICE || '',
 
-	// [FINNHUB] //
-	STRIPE_API_KEY: process.env.STRIPE_API_KEY,
-
 	// [EMAIL-RECEIVERS] //
 	ADMIN_EMAIL: process.env.ADMIN_EMAIL || '',
-	ADVANCED_EMAIL: process.env.ADVANCED_EMAIL || '',
-	DESIGNS_EMAIL: process.env.DESIGNS_EMAIL || '',
-	INSTALLS_EMAIL: process.env.INSTALLS_EMAIL || '',
-	SERVICES_EMAIL: process.env.SERVICES_EMAIL || '',
+
+	// [MAILGUN] //
+	MAILGUN_API_KEY: process.env.MAILGUN_API_KEY || '',
+
+	// [FINNHUB] //
+	STRIPE_API_KEY: process.env.STRIPE_API_KEY,
 
 	// [COINBASE] //
 	COINBASE_API_KEY: process.env.COINBASE_API_KEY || '',

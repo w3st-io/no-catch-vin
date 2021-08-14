@@ -39,6 +39,8 @@ import example_hoursAndContact from '@/pages/example/hours-and-contact'
 import followed from '@/pages/followed'
 // Home //
 import home from '@/pages/home'
+// Legal //
+import legal from '@/pages/legal'
 // Notification //
 import notification from '@/pages/notification'
 // Pay Wall //
@@ -304,6 +306,16 @@ const router = new Router ({
 			meta: {
 				auth: true,
 				title: 'Home'
+			},
+		},
+		// Legal //
+		{
+			path: '/legal',
+			name: 'legal',
+			component: legal,
+			meta: {
+				auth: true,
+				title: 'Legal Disclaimer'
 			},
 		},
 		// Notifications //
