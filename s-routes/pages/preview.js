@@ -30,6 +30,8 @@ router.get(
 						}
 					}
 				)
+
+				console.log('ss', response);
 	
 				res.send({
 					executed: true,
@@ -46,6 +48,7 @@ router.get(
 			}
 		}
 		catch (err) {
+			console.log();
 			res.send({
 				executed: false,
 				status: false,
