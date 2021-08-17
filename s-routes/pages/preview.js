@@ -22,20 +22,32 @@ router.get(
 		try {
 			if (validator.isAscii(req.params.vin)) {
 				const response = await axios.get(
-					`https://vindecoder.p.rapidapi.com/decode_vin?vin=${req.params.vin}`,
+					'https://vindecoder.p.rapidapi.com/decode_vin',
 					{
+						params: {
+							vin: req.params.vin,
+						},
 						headers: {
 							'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
 							'x-rapidapi-key': `${config.VIN_DECODER_API_KEY}`,
 						}
 					}
 				)
-	
-				res.send({
-					executed: true,
-					status: true,
-					data: response.data
-				})
+
+				if (response.data.success) {
+					res.send({
+						executed: true,
+						status: true,
+						data: response.data
+					})
+				}
+				else {
+					res.send({
+						executed: true,
+						status: false,
+						message: 'Invalid vin'
+					})
+				}
 			}
 			else {
 				res.send({

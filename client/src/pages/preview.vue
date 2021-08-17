@@ -1,9 +1,10 @@
 <template>
 	<section class="my-5 w3l-content-6 report-section">
 		<BContainer class="container">
-			<BRow class="content-info-in">
+			<BRow v-if="!loading" class="content-info-in">
 				<!-- col 6 -->
 				<BCol
+					v-if="!error"
 					cols="12"
 					class="mx-auto pl-lg-4"
 					style="max-width: 800px;"
@@ -151,8 +152,11 @@
 				</BCol>
 
 				<!-- cols 12 -->
-				<BCol cols="12">
-					<h3 class="text-danger">{{ error }}</h3>
+				<BCol v-if="error" cols="12">
+					<div class="m-0 alert alert-danger">
+						<h1 class="text-center text-danger">Error:</h1>
+						<h3 class="text-center text-danger">{{ error }}</h3>
+					</div>
 				</BCol>
 			</BRow>
 		</BContainer>
@@ -165,6 +169,7 @@ import PageService from '../services/PageService'
 export default {
 	data() {
 		return {
+			loading: true,
 			resData: {},
 			make: '',
 			model: '',
@@ -185,6 +190,8 @@ export default {
 				this.engine = this.resData.data.specification.engine
 			}
 			else { this.error = this.resData.message }
+
+			this.loading = false
 		}
 	},
 
