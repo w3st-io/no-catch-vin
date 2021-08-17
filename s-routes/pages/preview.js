@@ -34,7 +34,6 @@ router.get(
 					}
 				)
 
-<<<<<<< HEAD
 				if (response.data.success) {
 					res.send({
 						executed: true,
@@ -49,15 +48,12 @@ router.get(
 						message: 'Invalid vin'
 					})
 				}
-=======
-				console.log('ss', response);
 	
 				res.send({
 					executed: true,
 					status: true,
 					data: response.data
 				})
->>>>>>> 5e8ecd52cd73d4a9bf852f355b1cb776a66820b1
 			}
 			else {
 				res.send({
