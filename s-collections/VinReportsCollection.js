@@ -31,7 +31,7 @@ module.exports = {
 			}
 	
 			// [SAVE] //
-			const createdPost = await new VinReportModel({
+			const createdVinReport = await new VinReportModel({
 				_id: mongoose.Types.ObjectId(),
 				emailedTo: emailedTo,
 				stripeCharge_id: stripeCharge_id,
@@ -43,7 +43,7 @@ module.exports = {
 			return {
 				executed: true,
 				status: true,
-				createdPost: createdPost,
+				createdVinReport: createdVinReport,
 			}
 		}
 		catch (err) {

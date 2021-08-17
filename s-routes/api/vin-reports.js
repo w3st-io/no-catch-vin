@@ -72,7 +72,7 @@ router.post(
 								vinDecodedSpecification: response.data.specification
 							})
 							
-							console.log(vinReportObj.createdPost);
+							console.log(vinReportObj.createdVinReport);
 							
 							// [MAIL] //
 							const to = req.body.email
@@ -80,7 +80,7 @@ router.post(
 							const html = `
 							<h1>Thank You For Your Vin Report Purchase<h1/>
 							<h4>
-							Your reprint code: ${vinReportObj.createdPost._id}
+							Your reprint code: ${vinReportObj.createdVinReport._id}
 							</h4>
 							`
 							
