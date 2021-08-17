@@ -22,7 +22,7 @@ router.post(
 	'/purchase',
 	async (req, res) => {
 		try {
-			// get the api data for vin
+			// [VIN-DECODER] //
 			const validate = await axios.get(
 				'https://vindecoder.p.rapidapi.com/decode_vin',
 				{
@@ -61,19 +61,8 @@ router.post(
 					
 					if (charge.status) {
 						if (charge.charge.paid) {
-							// get the api data for vin
-							const response = await axios.get(
-								'https://vindecoder.p.rapidapi.com/decode_vin',
-								{
-									params: {
-										vin: req.body.vin,
-									},
-									headers: {
-										'x-rapidapi-host': 'vindecoder.p.rapidapi.com',
-										'x-rapidapi-key': `${config.VIN_DECODER_API_KEY}`,
-									}
-								}
-							)
+							// [VIN-DECODER] //
+
 								
 							// [CREATE] vinReport //
 							const vinReportObj = await vinReportsCollection.c_create({
